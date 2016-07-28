@@ -46,6 +46,6 @@ A simple `sudo composer install` will do the trick if you're in the folder of co
 ### 4. Setup a CRON-job for the updates
 In Ubuntu, just open your cron-file and edit it directly with the command `sudo crontab -e`, and add the following line:
 ```
-*/10 * * * * /usr/bin/php /var/www/html/humblegraph/cron/cron-humblegraph.php #HumbleGraph cron every 10 sec
+*/10 * * * * /usr/bin/php /var/www/html/humblegraph/cron/cron-humblegraph.php #HumbleGraph cron every 10 min
 ```
 Be sure to adjust the location of your PHP exec and/or your humblegraph project directory
