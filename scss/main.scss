@@ -1,0 +1,234 @@
+@import "reset";
+
+/*----------  Variables  ----------*/
+
+$cl-foreground: #282C34;
+$cl-background: #EBEBEB;
+$cl-primary: #FAC564;
+$cl-secondary: #4BC0C0;
+$cl-footer: #3B3E48;
+
+$fn-header: 'Slabo 27px', serif;
+$fn-content: 'Roboto Condensed', sans-serif;
+
+/*----------  Breakpoints  ----------*/
+
+@mixin bp-mobile {
+	@media
+	screen and (max-width: 840px) {
+		@content;
+	}
+}
+
+/*----------  Main  ----------*/
+
+html {
+	height: 100%;
+	width: 100%;
+
+	@include bp-mobile {
+		font-size: 0.875rem;
+	}
+}
+
+body {
+	background-color: $cl-background;
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	width: 100%;
+}
+
+header.header--page {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	flex: none;
+}
+
+main {
+	display: flex;
+	justify-content: center;
+	flex: 1 0 auto;
+}
+
+footer {
+	background-color: $cl-footer;
+	display: flex;
+	justify-content: center;
+	flex: none;
+}
+
+
+/*----------  Typography  ----------*/
+
+h1, h2, h3 {
+	font-family: $fn-header;
+	color: $cl-foreground;
+}
+
+h1 {
+	font-size: 1.75rem;
+}
+
+h2 {
+	font-size: 3rem;
+
+	a {
+		text-decoration: none;
+	}
+
+	@include bp-mobile {
+		font-size: 2rem;
+	}
+}
+
+h2.title--logo i {
+	color: $cl-secondary;
+}
+
+p {
+	font-family: $fn-content;
+}
+
+a {
+	color: $cl-foreground;
+}
+
+
+/*----------  Header--page  ----------*/
+
+header.header--page {
+	.header__content {
+		width: 100%;
+		max-width: 80rem;
+		padding: 1rem;
+	}
+}
+
+
+/*----------  Main  ----------*/
+
+main {
+	background-color: #fff;
+
+	.main__content {
+		width: 100%;
+		max-width: 80rem;
+		padding: 1rem 1rem;
+
+		h1.title--page {
+			margin-bottom: 1rem;
+		}
+
+		div.box-bundles {
+			margin: 2rem 0rem 1rem;
+		}
+
+		table.table-bundles {
+			width: 100%;
+
+			tr {
+
+				&:nth-child(even) {
+					background-color: lighten($cl-background, 5);
+				}
+
+				&.selected {
+					background-color: lighten($cl-primary, 25);
+				}
+
+				td {
+					border-bottom: 1px solid lighten($cl-background, 2);
+				}
+			}
+
+			td {
+				padding: 0.5rem;
+				font-family: $fn-content;
+			}
+
+			th {
+				padding: 0.5rem;
+				font-family: $fn-content;
+				text-align: left;
+				font-weight: normal;
+				background-color: $cl-primary;
+				color: $cl-foreground;
+
+				&.headerSortDown:after {
+					margin-top: 0.5rem;
+					margin-left: 0.5rem;
+					vertical-align: top;
+					line-height: 2rem;
+					display: inline-block;
+					content: "";
+					width: 0;
+					height: 0;
+					border-left: 0.25rem solid transparent;
+					border-right: 0.25rem solid transparent;
+
+					border-top: 0.25rem solid $cl-foreground;
+
+				}
+
+				&.headerSortUp:after {
+					margin-top: 0.5rem;
+					margin-left: 0.5rem;
+					vertical-align: top;
+					line-height: 2rem;
+					display: inline-block;
+					content: "";
+					width: 0;
+					height: 0;
+					border-left: 0.25rem solid transparent;
+					border-right: 0.25rem solid transparent;
+
+					border-bottom: 0.25rem solid $cl-foreground;
+
+				}
+			}
+		}
+	}
+}
+
+
+/*----------  Footer  ----------*/
+
+footer {
+
+	.footer__content {
+		width: 100%;
+		max-width: 30rem;
+		padding: 1.5rem 1rem 1.5rem;
+	}
+
+	.footer-text--copyright {
+		color: $cl-background;
+		margin-bottom: 1rem;
+		text-align: center;
+	}
+
+	.footer-text--social {
+		margin-bottom: 1rem;
+		text-align: center;
+
+		a {
+			font-size: 1.5rem;
+			color: $cl-background;
+			border-right: 1px solid lighten($cl-footer, 15);
+			padding-right: 0.625rem;
+			margin-right: 0.625rem;
+
+			&:last-child {
+				border-right: none;
+				padding-right: 0;
+				margin-right: 0;
+			}
+		}
+	}
+
+	.footer-text--disclaimer {
+		color: lighten($cl-footer, 30);
+	}
+}
